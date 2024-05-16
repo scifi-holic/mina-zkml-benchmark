@@ -17,14 +17,14 @@ RISC Zero: Emphasizes high security and scalability in its ZKML implementations.
 - **Linear Regression:** A fundamental machine learning algorithm used for predictive analysis.
 - **Logistic Regression:** Commonly used for classification problems in various applications.
 
-### 2 Month Milestone
+### 2 Month Milestone (TBD)
 - **Random Forest:** An ensemble learning method for classification and regression tasks.
 
-### 3 Month Milestone
+### 3 Month Milestone (TBD)
 - **LeNet:** The simplest CNN model.
 
-### 4 Month Milestone
-- **sLLM:** Small LLM model
+### 4 Month Milestone (TBD)
+- **sLM:** Small Language Model
 
 ## Metrics
 To comprehensively evaluate the performance of the ZKML frameworks, the following metrics will be measured:
