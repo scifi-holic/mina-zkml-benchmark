@@ -47,3 +47,12 @@ Analyze the trade-offs between proving efficiency and model accuracy, considerin
 
 ## Conclusion
 This project will provide valuable insights into the performance of various ZKML frameworks. The findings will help identify the most efficient and effective platforms for implementing ZKML, aiding future developments in this field. By understanding the strengths and weaknesses of each framework, researchers and developers can make informed decisions when choosing a ZKML platform for their machine learning applications.
+
+
+## Reference projects
+
+- EZKL (https://github.com/zkonduit/ezkl)
+- EZKL Benchmark (https://github.com/zkonduit/zkml-framework-benchmarks)
+- orion (https://github.com/gizatechxyz/orion)
+- risc0 (https://github.com/risc0/risc0)
+- Snarky-ML (https://github.com/only4sim/Snarky-ML)
