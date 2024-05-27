@@ -23,3 +23,55 @@
 // },
 // });
 
+import { Field, SelfProof, ZkProgram, verify } from 'o1js';
+
+const LinearRegression = ZkProgram({
+  name: 'linear-regression',
+  publicInput: Field,
+
+  methods: {
+    init: {
+      privateInputs: [],
+
+      async method(state: Field) {
+        state.assertEquals(Field(0));
+      },
+    },
+
+    predict: {
+      privateInputs: [SelfProof, Field],
+
+      async method(
+        newState: Field,
+        earlierProof: SelfProof<Field, void>,
+        numberToAdd: Field
+      ) {
+        earlierProof.verify();
+        newState.assertEquals(earlierProof.publicInput.add(numberToAdd));
+      },
+    },
+
+  },
+});
+
+async function main() {
+  console.log('compiling...');
+
+  const { verificationKey } = await LinearRegression.compile();
+
+  console.log('making proof 0');
+
+  const proof0 = await LinearRegression.init(Field(0));
+
+  console.log('making proof 2');
+
+  const proof2 = await LinearRegression.predict(Field(4), proof0, Field(4);
+
+  console.log('verifying proof 2');
+  console.log('proof 2 data', proof2.publicInput.toString());
+
+  const ok = await verify(proof2.toJSON(), verificationKey);
+  console.log('ok', ok);
+}
+
+main();
