@@ -37,19 +37,33 @@ const LinearRegression = ZkProgram({
         state.assertEquals(Field(0));
       },
     },
-
     predict: {
-      privateInputs: [SelfProof, Field],
+      privateInputs: [Provable.Array(Int64, 2)],
 
-      async method(
-        newState: Field,
-        earlierProof: SelfProof<Field, void>,
-        numberToAdd: Field
-      ) {
-        earlierProof.verify();
-        newState.assertEquals(earlierProof.publicInput.add(numberToAdd));
-      },
+      method(input: Int64[]): Int64 {
+        const coefficients = [Int64.from(5), Int64.from(5)];
+        const intercept = Int64.from(0);
+        let dotProduct = Int64.from(0);
+
+        for (let i = 0; i < coefficients.length; i++) {
+          dotProduct = dotProduct.add(coefficients[i].mul(input[i]));
+        }
+
+        const z = dotProduct.div(10).add(intercept); 
+        return z;
     },
+    // predict: {
+    //   privateInputs: [SelfProof, Field],
+
+    //   async method(
+    //     newState: Field,
+    //     earlierProof: SelfProof<Field, void>,
+    //     numberToAdd: Field
+    //   ) {
+    //     earlierProof.verify();
+    //     newState.assertEquals(earlierProof.publicInput.add(numberToAdd));
+    //   },
+    // },
 
   },
 });
