@@ -58,8 +58,8 @@ async function main() {
   const { verificationKey } = await LinearRegression.compile();
 
   console.log('making proof 0');
-  let input = [Int64.from(25)];
-  const res0 = await LinearRegression.predict(input);
+  let input = Int64.from(25);
+  let res0 = await LinearRegression.predict(Int64.from(0), [Int64.from(1)]);
   console.log('res 0: ', res0);
 
   // const proof0 = await LinearRegression.init(Field(0));
